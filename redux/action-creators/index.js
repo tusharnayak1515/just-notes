@@ -1,0 +1,615 @@
+import axios from "axios";
+import { getCookie, removeCookies, setCookie } from "cookies-next";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export const register = ({name, email, password})=> async(dispatch)=> {
+    dispatch({
+        type: "user-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.post(`${link}/api/auth/register`, {name, email, password});
+
+        if(res.data.success) {
+            dispatch({
+                type: "register",
+                payload: {
+                    user: getCookie("auth_token")
+                }
+            });
+            toast.success("Registration Successful!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "register",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "register",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const login = ({email, password})=> async(dispatch)=> {
+    dispatch({
+        type: "user-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.post(`${link}/api/auth/login`, {email, password});
+
+        if(res.data.success) {
+            dispatch({
+                type: "login",
+                payload: {
+                    user: getCookie("auth_token")
+                }
+            });
+            toast.success("Login Successful!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "login",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "login",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const profile = (token)=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/auth/profile`, {headers: {"auth_token": token}});
+
+        if(res.data.success) {
+            dispatch({
+                type: "profile",
+                payload: {
+                    profile: getCookie("jn_profile")
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "profile",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "profile",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const editProfile = ({name, email})=> async(dispatch)=> {
+    dispatch({
+        type: "user-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.put(`${link}/api/auth/editprofile`, {name, email});
+
+        if(res.data.success) {
+            dispatch({
+                type: "edit-profile",
+                payload: {
+                    profile: getCookie("jn_profile")
+                }
+            });
+            toast.success("Profile updated successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "edit-profile",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "edit-profile",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const logout = ()=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/auth/logout`);
+
+        if(res.data.success) {
+            removeCookies("auth_token");
+            removeCookies("jn_profile");
+            if(typeof window !== "undefined") {
+                localStorage.removeItem("jn_notes");
+            }
+            dispatch({
+                type: "logout"
+            });
+            toast.success("Logged out successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "logout",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "logout",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const getNotes = (token)=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/notes/`, {headers: {"auth_token": token}});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_notes", JSON.stringify(res.data.notes));
+            }
+            dispatch({
+                type: "get-notes",
+                payload: {
+                    notes: res.data.notes
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-notes",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "get-notes",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const getNote = (id,token)=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/notes/getnote?note=${id}`, {headers: {"auth_token": token}});
+
+        if(res.data.success) {
+            dispatch({
+                type: "get-note",
+                payload: {
+                    note: res.data.note
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-note",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "get-note",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const addNote = ({title, description})=> async(dispatch)=> {
+    dispatch({
+        type: "notes-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.post(`${link}/api/notes/addnote`, {title, description});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_notes", JSON.stringify(res.data.notes));
+            }
+            dispatch({
+                type: "add-note",
+                payload: {
+                    notes: res.data.notes
+                }
+            });
+            toast.success("Note added successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "add-note",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "add-note",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const editNote = ({id, title, description})=> async(dispatch)=> {
+    dispatch({
+        type: "notes-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.put(`${link}/api/notes/editNote?note=${id}`, {title, description});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_notes", JSON.stringify(res.data.notes));
+            }
+            dispatch({
+                type: "edit-note",
+                payload: {
+                    notes: res.data.notes
+                }
+            });
+            toast.success("Note updated successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "edit-note",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "edit-note",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const deleteNote = (id)=> async(dispatch)=> {
+    dispatch({
+        type: "notes-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.delete(`${link}/api/notes/deletenote?note=${id}`);
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_notes", JSON.stringify(res.data.notes));
+            }
+            dispatch({
+                type: "delete-note",
+                payload: {
+                    notes: res.data.notes
+                }
+            });
+            toast.success("Note deleted successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "delete-note",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "delete-note",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
