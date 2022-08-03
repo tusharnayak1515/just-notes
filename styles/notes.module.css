@@ -1,12 +1,18 @@
 .notes {
-    height: 86vh;
+    height: 88vh;
     width: 100%;
     padding: 1rem;
     overflow-x: hidden;
     overflow-y: scroll;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
     /* background-color: palegreen; */
+}
+
+.notes .noNotes {
+    width: 100%;
+    margin-top: 5vh;
+    color: grey;
+    text-align: center;
+    /* background-color: orange; */
 }

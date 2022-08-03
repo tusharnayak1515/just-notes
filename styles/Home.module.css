@@ -1,10 +1,17 @@
-.container {
+.container, .dark_container {
   position: absolute;
   top: 0;
   left: 14%;
   height: 100vh;
   width: calc(100% - 14%);
-  /* background-color: orange; */
+}
+
+.container {
+  background-color: white;
+}
+
+.dark_container {
+  background-color: #010125;
 }
 
 .main {
@@ -17,38 +24,59 @@
 }
 
 .main .topDiv {
-  height: 14vh;
+  height: 20vh;
   width: 100%;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 0.1rem solid grey;
+  border-bottom: 0.1rem solid #010125;
   /* background-color: yellowgreen; */
+}
+
+.dark_container .main .topDiv {
+  border-bottom: 0.1rem solid white;
 }
 
 .main .topDiv .title {
   width: 100%;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   /* background-color: red; */
 }
 
+.dark_container .main .topDiv .title {
+  color: white;
+}
+
 .main .topDiv .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: grey;
   /* background-color: hotpink; */
 }
 
-.main .topDiv .info h3 {
-  color: grey;
-  /* font-weight: normal; */
+.main .topDiv .info h2 {
+  color: black;
+}
+
+.dark_container .main .topDiv .info {
+  color: white;
+}
+
+.dark_container .main .topDiv .info h2 {
+  color: white;
 }
 
 .main .topDiv .info .mode_icon {
   font-size: 1.5rem;
   color: black;
   cursor: pointer;
+}
+
+.dark_container .topDiv .info .mode_icon {
+  color: white;
 }

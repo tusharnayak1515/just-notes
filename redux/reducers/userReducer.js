@@ -1,7 +1,7 @@
 import { getCookie } from "cookies-next";
 
-let isUser;
-let isProfile;
+let isUser = null;
+let isProfile = null;
 
 if(getCookie("auth_token") === undefined) {
     isUser = null;
@@ -33,9 +33,10 @@ const userReducer = (state = initState, action)=> {
     }
 
     else if(action.type === "toggle-theme") {
+        const theme = state.theme === "light" ? "dark" : "light";
         return {
             ...state,
-            theme: theme === "light" ? "dark" : "light",
+            theme: theme,
             isLoading: false
         }
     }

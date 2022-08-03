@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { BiArrowBack } from "react-icons/bi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { toast } from "react-toastify";
 import { actionCreators } from "../redux";
 
@@ -10,6 +10,7 @@ import styles from "../styles/noteForm.module.css";
 const NoteForm = ({ note }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const {theme} = useSelector(state=> state.default.userReducer,shallowEqual);
   const [noteDetails, setNoteDetails] = useState({
     id: note ? note._id : null,
     title: note ? note.title : "",
@@ -108,7 +109,7 @@ const NoteForm = ({ note }) => {
   }
 
   return (
-    <div className={styles.noteForm}>
+    <div className={`${styles.noteForm} ${theme === "light" ? styles.light_form : styles.dark_form}`}>
       <div className={styles.btnDiv}>
         <h1 onClick={onCancelClick}>
           <BiArrowBack className={styles.back_btn} />

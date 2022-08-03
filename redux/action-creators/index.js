@@ -3,7 +3,7 @@ import { getCookie, deleteCookie } from "cookies-next";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const toggleTheme = ()=> {
+export const toggleTheme = ()=> async (dispatch)=> {
     dispatch({
         type: "toggle-theme"
     });
@@ -140,13 +140,13 @@ export const login = ({email, password})=> async(dispatch)=> {
 export const profile = (token)=> async(dispatch)=> {
     const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
     try {
-        const res = await axios.get(`${link}/api/auth/profile`, {headers: {"auth_token": token}});
-
+        const res = await axios.get(`${link}/api/auth/profile/`, {headers: {"auth_token": token}});
+        const myprofile = getCookie("jn_profile") !== undefined ? getCookie("jn_profile") : res.data.user;
         if(res.data.success) {
             dispatch({
                 type: "profile",
                 payload: {
-                    profile: getCookie("jn_profile")
+                    profile: myprofile
                 }
             });
         }

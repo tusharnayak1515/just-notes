@@ -1,10 +1,12 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { shallowEqual, useSelector } from "react-redux";
 
 import styles from "../styles/noteItem.module.css";
 
 const NoteItem = ({ note }) => {
   const router = useRouter();
+  const {theme} = useSelector(state=> state.default.userReducer,shallowEqual);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -12,7 +14,7 @@ const NoteItem = ({ note }) => {
   };
 
   return (
-    <div className={styles.noteItem} onClick={onClickHandler}>
+    <div className={`${styles.noteItem} ${theme === "light" ? styles.light_item : styles.dark_item}`} onClick={onClickHandler}>
       <h2 className={styles.title}>{note.title}</h2>
       <h4 className={styles.description}>
         {note.description.replace(/\s/g, "").trim().substring(0, 350)}

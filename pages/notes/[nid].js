@@ -12,7 +12,7 @@ import NoteForm from "../../components/NoteForm";
 const Note = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user } = useSelector(state => state.default.userReducer,shallowEqual);
+  const { user, theme } = useSelector(state => state.default.userReducer,shallowEqual);
   const { note } = useSelector(state => state.default.notesReducer,shallowEqual);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Note = () => {
   }, [user, router, dispatch]);
 
   return (
-    <div className={styles.note_container}>
+    <div className={`${styles.note_container} ${theme === "light" ? styles.light_container : styles.dark_container}`}>
       <Head>
         <title>{note?.title}</title>
         <meta

@@ -17,6 +17,10 @@
     margin-bottom: 0.5rem;
 }
 
+.dark_form label {
+    color: white;
+}
+
 .noteForm .titleDiv input, .noteForm .descriptionDiv textarea {
     outline: none;
     width: 100%;
@@ -52,14 +56,21 @@
 }
 
 .noteForm .btnDiv {
-    height: 12vh;
+    height: 15vh;
     padding: 1rem 2rem;
     font-size: 1.3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 0.1rem solid black;
     /* background-color: orchid; */
+}
+
+.light_form .btnDiv {
+    border-bottom: 0.1rem solid #010125;
+}
+
+.dark_form .btnDiv {
+    border-bottom: 0.1rem solid white;
 }
 
 .noteForm .btnDiv .btn_container {
@@ -80,14 +91,25 @@
     cursor: pointer;
 }
 
-.noteForm .btnDiv .back_btn {
-    color: #010125;
+.btnDiv .back_btn {
     cursor: pointer;
+}
+
+.light_form .btnDiv .back_btn {
+    color: #010125;
+}
+
+.dark_form .btnDiv .back_btn {
+    color: white;
 }
 
 .noteForm .btnDiv .back_btn:hover {
     color: grey;
     transition: all 0.2s ease-in-out;
+}
+
+.dark_form .btnDiv .back_btn:hover {
+    color: aqua;
 }
 
 .noteForm .btnDiv .btn_container .saveBtn {

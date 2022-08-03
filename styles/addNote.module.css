@@ -6,5 +6,12 @@
     width: calc(100% - 14%);
     display: flex;
     flex-direction: column;
+}
+
+.light_addNote {
     background-color: white;
+}
+
+.dark_addNote {
+    background-color: #010125;
 }

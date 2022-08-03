@@ -32,6 +32,7 @@ const masterReducer = (state,action)=> {
         return nextState;
     }
     else {
+        // console.log("state: ",reducers(state,action));
         return reducers(state,action);
     }
 }
