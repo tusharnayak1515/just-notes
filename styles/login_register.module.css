@@ -1,0 +1,164 @@
+.wrapper {
+    /* position: absolute; */
+    /* left: 14%; */
+    height: 100vh;
+    /* width: calc(100vw - 14%); */
+    width: 100%;
+    margin: auto;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    /* color: white; */
+    /* background-color: red; */
+}
+
+.wrapper .banner, .wrapper .rightDiv {
+    min-height: 100%;
+    width: 50%;
+}
+
+.wrapper .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    background-image: linear-gradient(to bottom, purple , rgb(190, 0, 190));
+}
+
+.wrapper .banner .heading {
+    width: 100%;
+    color: white;
+    text-align: center;
+    /* background-color: orange; */
+}
+
+.wrapper .banner .features {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: yellowgreen; */
+}
+
+.wrapper .banner .features .flexDiv {
+    width: 100%;
+    /* margin: 0.5rem 0; */
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: orchid; */
+}
+
+.wrapper .banner .features .flexDiv .feature {
+    width: 13vw;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.wrapper .banner .features .flexDiv .feature .features_icon {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.wrapper .banner .features .flexDiv .feature p {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.wrapper .banner .footer {
+    width: 100%;
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: brown; */
+}
+
+/* .wrapper .banner .footer .social {
+    background-color: rebeccapurple;
+} */
+
+.wrapper .banner .footer .social .social_icon {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.wrapper .rightDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper .rightDiv::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: url("/static/images/login_bg1.jpg") center center no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    z-index: 10;
+}
+
+.wrapper .rightDiv .form {
+    min-height: 55vh;
+    width: 55%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0.005rem 0.005rem 0.2rem 0.2rem grey;
+    opacity: 1;
+    z-index: 15;
+    background-color: white;
+}
+
+/* .wrapper .rightDiv .form h1 {
+    color: white;
+} */
+
+.wrapper .rightDiv .form input, .wrapper .rightDiv .form button {
+    outline: none;
+    width: 70%;
+    border: 0.1rem solid purple;
+    border-radius: 0.5rem;
+}
+
+.wrapper .rightDiv .form input {
+    margin: 1rem 0;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+}
+
+.wrapper .rightDiv .form button {
+    margin: 0.5rem 0;
+    padding: 0.5rem 2rem;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: purple;
+}
+
+.wrapper .rightDiv .form button:hover {
+    color: purple;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.wrapper .rightDiv .form .otherText {
+    color: purple;
+    cursor: pointer;
+}

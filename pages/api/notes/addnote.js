@@ -7,12 +7,12 @@ import Note from "../../../models/Note";
 
 const schema = (input) => 
 Joi.object({
-    title: Joi.string().min(3).max(25).required().messages({
+    title: Joi.string().replace(/\s/g, "").trim().min(3).max(20).required().messages({
         'title.min': '{#label} should contain at least {#min} characters!',
         'title.max': '{#label} should contain at most {#max} characters!',
         'title.required': '{#label} cannot be empty!',
     }),
-    description: Joi.string().min(3).required().messages({
+    description: Joi.string().replace(/\s/g, "").trim().min(3).required().messages({
         'description.min': '{#label} should contain at least {#min} characters!',
         'description.required': '{#label} cannot be empty!'
     }),

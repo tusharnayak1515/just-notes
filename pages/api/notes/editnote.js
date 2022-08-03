@@ -7,11 +7,11 @@ import Note from "../../../models/Note";
 
 const schema = (input) => 
 Joi.object({
-    title: Joi.string().min(3).max(25).required().messages({
+    title: Joi.string().replace(/\s/g, "").trim().min(3).max(20).required().messages({
         'title.min': '{#label} should contain at least {#min} characters!',
         'title.max': '{#label} should contain at most {#max} characters!'
     }),
-    description: Joi.string().min(3).required().messages({
+    description: Joi.string().replace(/\s/g, "").trim().min(3).required().messages({
         'description.min': '{#label} should contain at least {#min} characters!'
     }),
 }).validate(input, { abortEarly: false });
@@ -23,6 +23,7 @@ const handler = async (req, res)=> {
     try {
       const userId = req.user.id;
       const noteId = req.query.note;
+      console.log(noteId);
       if(noteId.length !== 24) {
         success = false;
         return res.status(400).json({success, error: "Invalid noteId"});
@@ -53,7 +54,7 @@ const handler = async (req, res)=> {
         .sort("-createdAt");
 
       success = true;
-      return res.status(200).json({ success, notes });
+      return res.status(200).json({ success, note, notes });
 
     } catch (error) {
       success = false;

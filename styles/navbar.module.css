@@ -1,0 +1,88 @@
+.navbar {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 14%;
+    background-color: #010125;
+}
+
+.navbar .logoDiv {
+    height: 12vh;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    border-bottom: 0.1rem solid white;
+    /* background-color: brown; */
+}
+
+.navbar .logoDiv .logo {
+    margin: 0 0.5rem;
+}
+
+.navbar .menu_container {
+    height: 30vh;
+    width: 100%;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .navbar .top {
+    background-color: orange;
+} */
+
+.navbar .menu_container .menuDiv {
+    width: 100%;
+    padding: 1rem 2rem;
+    /* margin: 0.1rem 0; */
+    font-size: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: hotpink; */
+}
+
+.navbar .menu_container .menuDiv .menu_icons {
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    /* border: none;
+    border-radius: 50%; */
+}
+
+.navbar .menu_container .menuDiv span {
+   cursor: pointer;
+}
+
+.navbar .menu_container .menuDiv span:hover {
+   text-decoration: underline;
+}
+
+.navbar .bottom {
+    height: 17vh;
+    margin-top: 5vh;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: palevioletred; */
+}
+
+.navbar footer {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* background-color: green; */
+}

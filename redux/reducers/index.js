@@ -10,19 +10,25 @@ const reducers = combineReducers({
 
 const masterReducer = (state,action)=> {
     if(action.type === HYDRATE) {
+        // console.log("state: ",state);
+        // console.log("action.payload.default: ",action.payload.default);
+        // console.log("state.notes: ",state.notesReducer);
+        // console.log("action.payload.notes: ",action.payload.default.notesReducer);
         const nextState = {
             ...state,
             userReducer: {
                 user: state.userReducer.user,
-                profile: action.payload.userReducer.profile ? action.payload.userReducer.profile : state.userReducer.profile,
+                profile: action.payload.default.userReducer.profile ? action.payload.default.userReducer.profile : state.userReducer.profile,
+                theme: state.userReducer.theme,
                 isLoading: state.userReducer.isLoading
             },
             notesReducer: {
-                notes: [...new Set(action.payload.notesReducer.notes, state.notesReducer.notes)],
-                note: action.payload.notesReducer.note ? action.payload.notesReducer.note : state.notesReducer.note,
+                notes: [...new Set(action.payload.default.notesReducer.notes, state.notesReducer.notes)],
+                note: action.payload.default.notesReducer.note ? action.payload.default.notesReducer.note : state.notesReducer.note,
                 isLoading: state.notesReducer.isLoading
             }
         }
+        // console.log("nextState: ",nextState);
         return nextState;
     }
     else {

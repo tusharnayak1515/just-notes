@@ -1,7 +1,7 @@
-let isNotes;
+let isNotes = null;
 
 if(typeof window !== "undefined") {
-    if(!localStorage.getItem("jn_notes")) {
+    if(localStorage.getItem("jn_notes") === null) {
         isNotes = null;
     }
     else {
@@ -14,7 +14,6 @@ const initState = {
     note: null,
     isLoading: false
 }
-
 
 const notesReducer = (state = initState, action)=> {
     if(action.type === "notes-loading") {
@@ -50,6 +49,14 @@ const notesReducer = (state = initState, action)=> {
         return {
             ...state,
             note: note,
+            isLoading: false
+        }
+    }
+
+    else if(action.type === "reset-note") {
+        return {
+            ...state,
+            note: null,
             isLoading: false
         }
     }
@@ -100,13 +107,6 @@ const notesReducer = (state = initState, action)=> {
     }
 
     else if(action.type === "logout") {
-        const { error } = action.payload;
-        if(error) {
-            return {
-                ...state,
-                isLoading: false
-            }
-        }
         return {
             ...state,
             notes: null,

@@ -1,6 +1,6 @@
 import connectToMongo from "../../../db";
 import fetchUser from "../../../middlewares/fetchUser";
-import { setCookies } from "cookies-next";
+import { setCookie } from "cookies-next";
 const Joi = require('joi');
 
 import User from "../../../models/User";
@@ -49,7 +49,7 @@ const handler = async (req, res)=> {
             user = await User.findByIdAndUpdate(userId, {name: name, email: email}, {new: true})
                 .select("-password");
 
-            setCookies("jn_profile", JSON.stringify(user), {req, res});
+            setCookie("jn_profile", JSON.stringify(user), {req, res});
             success = true;
             return res.status(200).json({success, user});
             

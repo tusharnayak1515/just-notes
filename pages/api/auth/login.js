@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const Joi = require('joi');
 const { joiPasswordExtendCore } = require('joi-password');
 const joiPassword = Joi.extend(joiPasswordExtendCore);
-import { setCookies } from "cookies-next";
+import { setCookie } from "cookies-next";
 
 import User from "../../../models/User";
 
@@ -53,7 +53,7 @@ const handler = async (req, res)=> {
             };
 
             const authToken = jwt.sign(data, secret);
-            setCookies("auth_token", authToken, {req, res, maxAge: 60 * 60 * 24});
+            setCookie("auth_token", authToken, {req, res, maxAge: 60 * 60 * 24});
             success = true;
             return res.status(200).json({success});
             

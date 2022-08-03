@@ -1,5 +1,5 @@
 import fetchUser from '../../../middlewares/fetchUser';
-import { removeCookies , getCookie } from 'cookies-next';
+import { getCookie, deleteCookie } from 'cookies-next';
 
 const handler = async (req, res)=> {
   const link = process.env.NODE_ENV === "production" ? "https://just-project-manager.vercel.app" : "http://localhost:3000";
@@ -8,8 +8,8 @@ const handler = async (req, res)=> {
     try {
       const token = getCookie("auth_token",{req, res}) || req.user.id;
       const profile = getCookie("jn_profile",{req, res});
-      removeCookies(token,{ path: '/', domain: link });
-      removeCookies(profile,{ path: '/', domain: link });
+      deleteCookie(token,{ path: '/', domain: link });
+      deleteCookie(profile,{ path: '/', domain: link });
       success = true;
       return res.status(200).json({ success });
 

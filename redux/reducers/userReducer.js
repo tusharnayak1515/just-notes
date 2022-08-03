@@ -3,14 +3,14 @@ import { getCookie } from "cookies-next";
 let isUser;
 let isProfile;
 
-if(!getCookie("auth_token")) {
+if(getCookie("auth_token") === undefined) {
     isUser = null;
 }
 else {
-    isUser = getCookie("user_token");
+    isUser = getCookie("auth_token");
 }
 
-if(!getCookie("jn_profile")) {
+if(getCookie("jn_profile") === undefined) {
     isProfile = null;
 }
 else {
@@ -20,15 +20,23 @@ else {
 const initState = {
     user: isUser,
     profile: isProfile,
+    theme: "light",
     isLoading: false
 }
-
 
 const userReducer = (state = initState, action)=> {
     if(action.type === "user-loading") {
         return {
             ...state,
             isLoading: true
+        }
+    }
+
+    else if(action.type === "toggle-theme") {
+        return {
+            ...state,
+            theme: theme === "light" ? "dark" : "light",
+            isLoading: false
         }
     }
 
@@ -123,13 +131,6 @@ const userReducer = (state = initState, action)=> {
     }
 
     else if(action.type === "logout") {
-        const { error } = action.payload;
-        if(error) {
-            return {
-                ...state,
-                isLoading: false
-            }
-        }
         return {
             ...state,
             user: null,
@@ -139,6 +140,7 @@ const userReducer = (state = initState, action)=> {
     }
 
     else {
+        // console.log(state);
         return state;
     }
 }

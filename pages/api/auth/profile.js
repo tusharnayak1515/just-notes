@@ -1,5 +1,5 @@
 import connectToMongo from "../../../db";
-import { setCookies } from "cookies-next";
+import { setCookie } from "cookies-next";
 import fetchUser from "../../../middlewares/fetchUser";
 
 import User from "../../../models/User";
@@ -19,7 +19,7 @@ const handler = async (req, res)=> {
                 return res.status(404).json({success, error: "User doesnot exist"});
             }
 
-            setCookies("jn_profile", JSON.stringify(user), {req, res});
+            setCookie("jn_profile", JSON.stringify(user), {req, res});
             success = true;
             return res.status(200).json({success, user});
             
