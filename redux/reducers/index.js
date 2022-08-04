@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 import notesReducer from "./notesReducer";
 import userReducer from "./userReducer";
+import foldersReducer from "./foldersReducer";
 import { HYDRATE } from "next-redux-wrapper";
 
 const reducers = combineReducers({
     userReducer: userReducer,
-    notesReducer: notesReducer
+    notesReducer: notesReducer,
+    foldersReducer: foldersReducer,
 });
 
 const masterReducer = (state,action)=> {
@@ -21,6 +23,11 @@ const masterReducer = (state,action)=> {
                 profile: action.payload.default.userReducer.profile ? action.payload.default.userReducer.profile : state.userReducer.profile,
                 theme: state.userReducer.theme,
                 isLoading: state.userReducer.isLoading
+            },
+            foldersReducer: {
+                folders: [...new Set(action.payload.default.foldersReducer.folders, state.notesReducer.folders)],
+                folder: action.payload.default.foldersReducer.folder ? action.payload.default.foldersReducer.folder : state.foldersReducer.folder,
+                isLoading: state.foldersReducer.isLoading
             },
             notesReducer: {
                 notes: [...new Set(action.payload.default.notesReducer.notes, state.notesReducer.notes)],

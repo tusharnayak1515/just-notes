@@ -1,30 +1,30 @@
-let isNotes = null;
+let isFolders = null;
 
 if(typeof window !== "undefined") {
-    if(localStorage.getItem("jn_notes") === null) {
-        isNotes = null;
+    if(localStorage.getItem("jn_folders") === null) {
+        isFolders = null;
     }
     else {
-        isNotes = JSON.parse(localStorage.getItem("jn_notes"));
+        isFolders = JSON.parse(localStorage.getItem("jn_folders"));
     }
 }
 
 const initState = {
-    notes: isNotes,
-    note: null,
+    folders: isFolders,
+    folder: null,
     isLoading: false
 }
 
-const notesReducer = (state = initState, action)=> {
-    if(action.type === "notes-loading") {
+const foldersReducer = (state = initState, action)=> {
+    if(action.type === "folders-loading") {
         return {
             ...state,
             isLoading: true
         }
     }
 
-    else if(action.type === "get-notes") {
-        const { notes, error } = action.payload;
+    else if(action.type === "get-folders") {
+        const { folders, error } = action.payload;
         if(error) {
             return {
                 ...state,
@@ -33,13 +33,13 @@ const notesReducer = (state = initState, action)=> {
         }
         return {
             ...state,
-            notes: notes,
+            folders: folders,
             isLoading: false
         }
     }
 
-    else if(action.type === "get-note") {
-        const { note, error } = action.payload;
+    else if(action.type === "get-folder") {
+        const { folder, error } = action.payload;
         if(error) {
             return {
                 ...state,
@@ -48,21 +48,21 @@ const notesReducer = (state = initState, action)=> {
         }
         return {
             ...state,
-            note: note,
+            folder: folder,
             isLoading: false
         }
     }
 
-    else if(action.type === "reset-note") {
+    else if(action.type === "reset-folder") {
         return {
             ...state,
-            note: null,
+            folder: null,
             isLoading: false
         }
     }
 
-    else if(action.type === "add-note") {
-        const { notes, error } = action.payload;
+    else if(action.type === "add-folder") {
+        const { folders, error } = action.payload;
         if(error) {
             return {
                 ...state,
@@ -71,13 +71,13 @@ const notesReducer = (state = initState, action)=> {
         }
         return {
             ...state,
-            notes: notes,
+            folders: folders,
             isLoading: false
         }
     }
 
-    else if(action.type === "edit-note") {
-        const { notes, note, error } = action.payload;
+    else if(action.type === "edit-folder") {
+        const { folders, folder, error } = action.payload;
         if(error) {
             return {
                 ...state,
@@ -86,14 +86,14 @@ const notesReducer = (state = initState, action)=> {
         }
         return {
             ...state,
-            notes: notes,
-            note: note,
+            folders: folders,
+            folder: folder,
             isLoading: false
         }
     }
 
-    else if(action.type === "delete-note") {
-        const { notes, error } = action.payload;
+    else if(action.type === "delete-folder") {
+        const { folders, error } = action.payload;
         if(error) {
             return {
                 ...state,
@@ -102,7 +102,7 @@ const notesReducer = (state = initState, action)=> {
         }
         return {
             ...state,
-            notes: notes,
+            folders: folders,
             isLoading: false
         }
     }
@@ -110,8 +110,8 @@ const notesReducer = (state = initState, action)=> {
     else if(action.type === "logout") {
         return {
             ...state,
-            notes: null,
-            note: null,
+            folders: null,
+            folder: null,
             isLoading: false
         }
     }
@@ -121,4 +121,4 @@ const notesReducer = (state = initState, action)=> {
     }
 }
 
-export default notesReducer;
+export default foldersReducer;

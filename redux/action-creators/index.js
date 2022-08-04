@@ -9,6 +9,8 @@ export const toggleTheme = ()=> async (dispatch)=> {
     });
 }
 
+// ****************************** Users Section ******************************* \\
+
 export const register = ({name, email, password})=> async(dispatch)=> {
     dispatch({
         type: "user-loading"
@@ -314,6 +316,323 @@ export const logout = ()=> async(dispatch)=> {
     }
 }
 
+// ****************************** Folders Section ******************************* \\
+
+export const getFolder = (id,token)=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/folders/getfolder?folder=${id}`, {headers: {"auth_token": token}});
+
+        if(res.data.success) {
+            dispatch({
+                type: "get-folder",
+                payload: {
+                    folder: res.data.folder
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-folder",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "get-folder",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const resetFolder = ()=> async (dispatch)=> {
+    dispatch({
+        type: "reset-folder"
+    });
+}
+
+export const addFolder = ({name})=> async(dispatch)=> {
+    dispatch({
+        type: "folders-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.post(`${link}/api/folders/addfolder`, {name});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_folders", JSON.stringify(res.data.folders));
+            }
+            dispatch({
+                type: "add-folder",
+                payload: {
+                    folders: res.data.folders
+                }
+            });
+            toast.success("Folder added successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "add-folder",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "add-folder",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const editFolder = ({id,name})=> async(dispatch)=> {
+    dispatch({
+        type: "folders-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.put(`${link}/api/folders/editfolder?folder=${id}`, {name});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_folders", JSON.stringify(res.data.folders));
+            }
+            dispatch({
+                type: "edit-folder",
+                payload: {
+                    folders: res.data.folders,
+                    folder: res.data.folder
+                }
+            });
+            toast.success("Folder updated successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "edit-folder",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "edit-folder",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const deleteFolder = (id)=> async(dispatch)=> {
+    dispatch({
+        type: "folders-loading"
+    });
+
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.delete(`${link}/api/folders/deletefolder?folder=${id}`);
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_folders", JSON.stringify(res.data.folders));
+            }
+            dispatch({
+                type: "delete-folder",
+                payload: {
+                    folders: res.data.folders
+                }
+            });
+            toast.success("Folder deleted successfully!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "delete-folder",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "delete-folder",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const getFolders = (token)=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/folders/`, {headers: {"auth_token": token}});
+
+        if(res.data.success) {
+            if(typeof window !== "undefined") {
+                localStorage.setItem("jn_folders", JSON.stringify(res.data.folders));
+            }
+            dispatch({
+                type: "get-folders",
+                payload: {
+                    folders: res.data.folders
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-folders",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "get-folders",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+// ****************************** Notes Section ******************************* \\
+
 export const getNote = (id,token)=> async(dispatch)=> {
     const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
     try {
@@ -370,7 +689,6 @@ export const resetNote = ()=> async (dispatch)=> {
         type: "reset-note"
     });
 }
-
 
 export const addNote = ({title, description})=> async(dispatch)=> {
     dispatch({
