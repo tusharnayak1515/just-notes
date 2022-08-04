@@ -4,6 +4,7 @@ import Joi from "joi";
 
 import User from "../../../models/User";
 import Note from "../../../models/Note";
+import Folder from "../../../models/Folder";
 
 const schema = (input) => 
 Joi.object({
@@ -23,7 +24,6 @@ const handler = async (req, res)=> {
     try {
       const userId = req.user.id;
       const noteId = req.query.note;
-      console.log(noteId);
       if(noteId.length !== 24) {
         success = false;
         return res.status(400).json({success, error: "Invalid noteId"});
@@ -46,6 +46,13 @@ const handler = async (req, res)=> {
       if(!note) {
         success = false;
         return res.status(404).json({success, error: "Note Doesnot exist!"})
+      }
+
+      const folderId = note.folder.toString();
+      let folder = await Folder.findById(folderId);
+      if(!folder) {
+        success = false;
+        return res.status(404).json({success, error: "Folder doesnot exist!"});
       }
 
       note = await Note.findByIdAndUpdate(noteId, {title: title, description: description}, {new: true});

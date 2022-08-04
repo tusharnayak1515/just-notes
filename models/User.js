@@ -14,10 +14,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    notes: [
+    folders: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Note'
+            ref: 'Folder'
         }
     ],
     createdAt: Number,

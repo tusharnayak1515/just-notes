@@ -12,7 +12,8 @@ const handler = async (req, res)=> {
         try {
             const userId = req.user.id;
             const user = await User.findById(userId)
-                .select("-password");
+                .select("-password")
+                .select("-folders");
             
             if(!user) {
                 success = false;

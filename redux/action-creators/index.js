@@ -141,12 +141,12 @@ export const profile = (token)=> async(dispatch)=> {
     const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/auth/profile/`, {headers: {"auth_token": token}});
-        const myprofile = getCookie("jn_profile") !== undefined ? getCookie("jn_profile") : res.data.user;
+        // const myprofile = getCookie("jn_profile") !== undefined ? getCookie("jn_profile") : res.data.user;
         if(res.data.success) {
             dispatch({
                 type: "profile",
                 payload: {
-                    profile: myprofile
+                    profile: JSON.parse(getCookie("jn_profile"))
                 }
             });
         }

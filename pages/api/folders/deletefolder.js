@@ -1,9 +1,9 @@
 import connectToMongo from "../../../db";
 import fetchUser from "../../../middlewares/fetchUser";
 
+import Folder from "../../../models/Folder";
 import User from "../../../models/User";
 import Note from "../../../models/Note";
-import Folder from "../../../models/Folder";
 
 const handler = async (req, res)=> {
   connectToMongo();
@@ -11,10 +11,10 @@ const handler = async (req, res)=> {
     let success;
     try {
       const userId = req.user.id;
-      const noteId = req.query.note;
-      if(noteId.length !== 24) {
+      const folderId = req.query.folder;
+      if(folderId.length !== 24) {
         success = false;
-        return res.status(400).json({success, error: "Invalid noteId"});
+        return res.status(400).json({success, error: "Invalid folderId"});
       }
 
       let user = await User.findById(userId);
@@ -23,28 +23,23 @@ const handler = async (req, res)=> {
         return res.status(404).json({success, error: "User doesnot exist!"});
       }
       
-      let note = await Note.findById(noteId);
-      if(!note) {
-        success = false;
-        return res.status(404).json({success, error: "Note Doesnot exist!"})
-      }
-
-      const folderId = note.folder.toString();
       let folder = await Folder.findById(folderId);
       if(!folder) {
         success = false;
-        return res.status(404).json({success, error: "Folder doesnot exist!"});
+        return res.status(404).json({success, error: "FOlder Doesnot exist!"})
       }
 
-      folder = await Folder.findByIdAndUpdate(folderId, {$pull: {notes: noteId}}, {new: true});
+      user = await User.findByIdAndUpdate(userId, {$pull: {folders: folderId}}, {new: true})
+        .select("-password")
+        .select("-folders");
 
-      note = await Note.findByIdAndDelete(noteId, {new: true});
+      folder = await Folder.findByIdAndDelete(folderId, {new: true});
 
-      const notes = await Note.find({user: userId})
+      const folders = await Folder.find({user: userId})
         .sort("-createdAt");
 
       success = true;
-      return res.status(200).json({ success, folder, notes });
+      return res.status(200).json({ success, user, folders });
 
     } catch (error) {
       success = false;

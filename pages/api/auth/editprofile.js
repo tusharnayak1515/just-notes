@@ -47,7 +47,8 @@ const handler = async (req, res)=> {
             }
 
             user = await User.findByIdAndUpdate(userId, {name: name, email: email}, {new: true})
-                .select("-password");
+                .select("-password")
+                .select("-folders");
 
             setCookie("jn_profile", JSON.stringify(user), {req, res});
             success = true;

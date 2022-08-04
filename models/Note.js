@@ -10,6 +10,10 @@ const NotesSchema = new Schema({
         type: String,
         required: true
     },
+    folder: {
+        type: Schema.Types.ObjectId,
+        ref: "Folder"
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
