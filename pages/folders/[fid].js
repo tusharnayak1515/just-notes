@@ -25,6 +25,11 @@ const FolderPage = () => {
     setShow(true);
   }
 
+  const onBack = (e)=> {
+    e.preventDefault();
+    router.push("/");
+  }
+
   useEffect(()=> {
     if(!user) {
         router.replace("/login");
@@ -50,7 +55,7 @@ const FolderPage = () => {
 
         <div className={styles.upperDiv}>
             {/* <h2 className={styles.count}>{notes?.length} notes</h2> */}
-            <h1 className={styles.back_btn}><MdOutlineKeyboardBackspace /></h1>
+            <h1 className={styles.back_btn} onClick={onBack}><MdOutlineKeyboardBackspace /></h1>
             <h1 className={styles.folder_name}>{folder?.name}</h1>
             <h2 className={styles.folder_edit} onClick={onEditClick}><MdEdit /></h2>
         </div>

@@ -32,32 +32,26 @@
     opacity: 1;
 }
 
-.modal .folder_head, .modal .project_head {
+.modal .folder_head {
     font-family: 'Josefin Sans', sans-serif;
     margin-bottom: 1rem;
 }
 
-.modal input, .modal button, .modal select {
+.modal input, .modal button {
     outline: none;
     width: 15rem;
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
 }
-
-.modal input, .modal select {
-    font-family: 'Saira', sans-serif;
-    margin: 0.5rem 0;
+.modal input {
+    margin-bottom: 1rem;
     border: 0.1rem solid #010118;
 }
 
 .modal button {
     font-family: 'Cormorant SC', serif;
     cursor: pointer;
-}
-
-.modal select {
-    line-height: normal;
 }
 
 .modal .add_btn {
