@@ -5,9 +5,9 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { actionCreators } from "../../redux";
 import * as cookie from "cookie";
 import { wrapper } from "../../redux/store";
+import NoteForm from "../../components/NoteForm";
 
 import styles from "../../styles/notePage.module.css";
-import NoteForm from "../../components/NoteForm";
 
 const Note = () => {
   const router = useRouter();
@@ -39,7 +39,7 @@ const Note = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NoteForm note={note} />
+      <NoteForm mynote={note} />
     </div>
   );
 };

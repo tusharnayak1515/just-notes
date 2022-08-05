@@ -101,7 +101,7 @@ const userReducer = (state = initState, action)=> {
         }
     }
 
-    else if(action.type === "add-note") {
+    else if(action.type === "add-folder") {
         const { profile, error } = action.payload;
         if(error) {
             return {
@@ -116,7 +116,7 @@ const userReducer = (state = initState, action)=> {
         }
     }
 
-    else if(action.type === "delete-note") {
+    else if(action.type === "delete-folder") {
         const { profile, error } = action.payload;
         if(error) {
             return {

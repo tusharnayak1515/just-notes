@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import NoteForm from '../components/NoteForm';
+import NoteForm from '../../components/NoteForm';
 import { shallowEqual, useSelector } from 'react-redux';
 
-import styles from "../styles/addNote.module.css";
+import styles from "../../styles/addNote.module.css";
 
 const Addnote = () => {
   const router = useRouter();
@@ -26,7 +26,7 @@ const Addnote = () => {
             />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <NoteForm />
+        <NoteForm folder={router.query.folder} />
     </div>
   )
 }

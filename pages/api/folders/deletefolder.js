@@ -1,5 +1,6 @@
 import connectToMongo from "../../../db";
 import fetchUser from "../../../middlewares/fetchUser";
+import { setCookie } from "cookies-next";
 
 import Folder from "../../../models/Folder";
 import User from "../../../models/User";
@@ -38,8 +39,10 @@ const handler = async (req, res)=> {
       const folders = await Folder.find({user: userId})
         .sort("-createdAt");
 
+      setCookie("jn_profile", JSON.stringify(user), (req, res));
+
       success = true;
-      return res.status(200).json({ success, user, folders });
+      return res.status(200).json({ success, folders });
 
     } catch (error) {
       success = false;

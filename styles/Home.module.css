@@ -24,12 +24,12 @@
 }
 
 .main .topDiv {
-  height: 20vh;
+  height: 15vh;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   border-bottom: 0.1rem solid #010125;
   /* background-color: yellowgreen; */
 }
@@ -38,45 +38,22 @@
   border-bottom: 0.1rem solid white;
 }
 
-.main .topDiv .title {
-  width: 100%;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  /* background-color: red; */
-}
-
 .dark_container .main .topDiv .title {
   color: white;
 }
 
-.main .topDiv .info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.main .topDiv .count {
   color: grey;
-  /* background-color: hotpink; */
 }
 
-.main .topDiv .info h2 {
-  color: black;
-}
-
-.dark_container .main .topDiv .info {
-  color: white;
-}
-
-.dark_container .main .topDiv .info h2 {
-  color: white;
-}
-
-.main .topDiv .info .mode_icon {
-  font-size: 1.5rem;
-  color: black;
+.main .topDiv .add_folder {
+  height: 3rem;
+  width: 3rem;
+  font-size: 3rem;
   cursor: pointer;
+  /* background-color: palevioletred; */
 }
 
-.dark_container .topDiv .info .mode_icon {
+.dark_container .main .topDiv .add_folder {
   color: white;
 }

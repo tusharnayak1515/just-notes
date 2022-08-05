@@ -1,0 +1,12 @@
+.folders {
+    height: 85vh;
+    width: 100%;
+    padding: 2rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    /* background-color: palegreen; */
+}

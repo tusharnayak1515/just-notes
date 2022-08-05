@@ -1,0 +1,23 @@
+.folderItem {
+    height: 8rem;
+    width: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* background-color: yellowgreen; */
+}
+
+.dark_folder span img {
+    color: white !important;
+}
+
+.folderItem p {
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.dark_folder p {
+    color: white;
+}

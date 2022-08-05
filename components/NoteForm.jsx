@@ -7,14 +7,15 @@ import { actionCreators } from "../redux";
 
 import styles from "../styles/noteForm.module.css";
 
-const NoteForm = ({ note }) => {
+const NoteForm = ({ folder, mynote }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const {theme} = useSelector(state=> state.default.userReducer,shallowEqual);
   const [noteDetails, setNoteDetails] = useState({
-    id: note ? note._id : null,
-    title: note ? note.title : "",
-    description: note ? note.description : "",
+    id: mynote ? mynote._id : null,
+    title: mynote ? mynote.title : "",
+    description: mynote ? mynote.description : "",
+    folder: folder
   });
 
   const onChangeHandler = (e) => {
@@ -25,7 +26,12 @@ const NoteForm = ({ note }) => {
 
   const onCancelClick = (e) => {
     e.preventDefault();
-    router.push("/");
+    if(mynote) {
+      router.push(`/folders/${mynote?.folder}`);
+    }
+    else {
+      router.push(`/folders/${folder}`);
+    }
   };
 
   const onEdit = (e) => {
@@ -36,7 +42,7 @@ const NoteForm = ({ note }) => {
       noteDetails.description.replace(/\s/g, "").trim().length >= 3
     ) {
       dispatch(actionCreators.editNote(noteDetails));
-      router.push("/");
+      router.push(`/folders/${mynote?.folder}`);
     } else {
       if (
         noteDetails.title.replace(/\s/g, "").trim().length < 3 ||
@@ -73,7 +79,7 @@ const NoteForm = ({ note }) => {
       noteDetails.description.replace(/\s/g, "").trim().length >= 3
     ) {
       dispatch(actionCreators.addNote(noteDetails));
-      router.push("/");
+      router.back();
     } else {
       if (
         noteDetails.title.replace(/\s/g, "").trim().length < 3 ||
@@ -104,8 +110,8 @@ const NoteForm = ({ note }) => {
 
   const onDelete = (e)=> {
     e.preventDefault();
-    dispatch(actionCreators.deleteNote(note._id));
-    router.replace("/");
+    dispatch(actionCreators.deleteNote(mynote._id));
+    router.push(`/folders/${mynote?.folder}`);
   }
 
   return (
@@ -115,10 +121,10 @@ const NoteForm = ({ note }) => {
           <BiArrowBack className={styles.back_btn} />
         </h1>
         <div className={styles.btn_container}>
-            {note && <button className={styles.deleteBtn} onClick={onDelete}>
+            {mynote && <button className={styles.deleteBtn} onClick={onDelete}>
                 Delete
             </button>}
-            <button className={styles.saveBtn} onClick={note ? onEdit : onAdd}>
+            <button className={styles.saveBtn} onClick={mynote ? onEdit : onAdd}>
                 Save
             </button>
         </div>

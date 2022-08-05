@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { actionCreators } from "../redux";
 import { DiJavascript } from "react-icons/di";
 import { FaUserAlt } from "react-icons/fa";
-import { IoMdAdd } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
-// import { AiOutlineCheck } from 'react-icons/ai';
 import { CgNotes } from "react-icons/cg";
 import { BsFillMoonFill, BsSun } from "react-icons/bs";
 
@@ -16,15 +14,7 @@ import styles from "../styles/navbar.module.css";
 const Navbar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { theme } = useSelector(
-    (state) => state.default.userReducer,
-    shallowEqual
-  );
-
-  const onAddClick = (e) => {
-    e.preventDefault();
-    router.push("/addnote");
-  };
+  const { theme, profile } = useSelector(state => state.default.userReducer,shallowEqual);
 
   const toggleMode = (e) => {
     e.preventDefault();
@@ -38,9 +28,9 @@ const Navbar = () => {
 
   return (
     <div className={theme === "light" ? styles.navbar : styles.dark_navbar}>
-      <div className={styles.logoDiv}>
-        <DiJavascript className={styles.logoIcon} />
-        <span className={styles.logo}>Just Notes</span>
+      <div className={styles.topDiv}>
+        <div className={styles.top_image}></div>
+        <h3>{profile?.name}</h3>
       </div>
 
       <div className={`${styles.menu_container} ${styles.top}`}>
@@ -58,7 +48,7 @@ const Navbar = () => {
                 color: (router.pathname === "/" && theme === "dark") && "aqua"
               }}
             >
-              My Notes
+              My Folders
             </span>
           </Link>
         </div>
@@ -95,30 +85,15 @@ const Navbar = () => {
         </div>
 
         <div className={styles.menuDiv}>
-          <IoMdAdd className={`${styles.menu_icons} ${styles.addIcon}`} />
-          <span onClick={onAddClick}>Add</span>
-        </div>
-
-        <div className={styles.menuDiv}>
           <BiLogOut className={styles.menu_icons} />
           <span onClick={onLogout}>Logout</span>
         </div>
       </div>
-
-      {/* <div className={`${styles.menu_container} ${styles.bottom}`}>
-            <div className={styles.menuDiv}>
-                <IoMdAdd className={`${styles.menu_icons} ${styles.addIcon}`} />
-                <span onClick={onAddClick}>Add</span>
-            </div>
-
-            <div className={styles.menuDiv}>
-                <BiLogOut className={styles.menu_icons} />
-                <span onClick={onLogout}>Logout</span>
-            </div>
-        </div> */}
-      {/* <div className={styles.footer}>
-            © JustCommunity
-        </div> */}
+      
+      <div className={styles.logoDiv}>
+        <DiJavascript className={styles.logoIcon} />
+        <span className={styles.logo}>Just Notes</span>
+      </div>
     </div>
   );
 };

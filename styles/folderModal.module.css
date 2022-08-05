@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500&family=Saira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+.overlay {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: rgba(0, 0, 0, 0.384);
+    z-index: 10;
+}
+
+.modal {
+    min-height: 30vh;
+    max-height: 45vh;
+    width: 25%;
+    padding: 2rem;
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    border-radius: 0.7rem;
+    background-color: white;
+    z-index: 5;
+    opacity: 1;
+}
+
+.modal .folder_head, .modal .project_head {
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.modal input, .modal button, .modal select {
+    outline: none;
+    width: 15rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.modal input, .modal select {
+    font-family: 'Saira', sans-serif;
+    margin: 0.5rem 0;
+    border: 0.1rem solid #010118;
+}
+
+.modal button {
+    font-family: 'Cormorant SC', serif;
+    cursor: pointer;
+}
+
+.modal select {
+    line-height: normal;
+}
+
+.modal .add_btn {
+    margin-bottom: 0.5rem;
+    color: white;
+    border: 0.1rem solid aqua;
+    background-color: #010118;
+    cursor: pointer;
+}
+
+.modal .add_btn:hover {
+    color: #010118;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.modal .delete_btn {
+    margin-bottom: 0.5rem;
+    color: white;
+    border: 0.1rem solid aqua;
+    background-color: red;
+    cursor: pointer;
+}
+
+.modal .delete_btn:hover {
+    color: red;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.modal .close_btn {
+    color: white;
+    background-color: rgb(101, 0, 0);
+    border: 0.1rem solid white;
+}
+
+.modal .close_btn:hover {
+    color:  rgb(101, 0, 0);
+    background-color: white;
+    border: 0.1rem solid  rgb(101, 0, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+
+    .modal {
+        min-height: 30vh;
+        max-height: 65vh;
+        width: 80%;
+        margin-top: 10vh;
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+
+    .modal {
+        min-height: 30vh;
+        max-height: 65vh;
+        width: 60%;
+        margin-top: 10vh;
+    }
+
+}

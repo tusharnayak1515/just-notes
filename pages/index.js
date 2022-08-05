@@ -1,70 +1,64 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { wrapper } from "../redux/store";
 import * as cookie from "cookie";
 import { actionCreators } from "../redux";
-import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
-import Notes from "../components/Notes";
+import { HiFolderAdd, HiOutlineFolderAdd } from "react-icons/hi";
 
 import styles from "../styles/Home.module.css";
+import Folders from "../components/Folders";
+import FolderModal from "../components/FolderModal";
 
 const Home = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user, profile, theme } = useSelector(
-    (state) => state.default.userReducer,
-    shallowEqual
-  );
-  const { notes } = useSelector(
-    (state) => state.default.notesReducer,
-    shallowEqual
-  );
+  const { user, theme } = useSelector(state => state.default.userReducer,shallowEqual);
+  const { folders } = useSelector(state => state.default.foldersReducer,shallowEqual);
+  const [show, setShow] = useState(false);
 
-  const toggleMode = (e) => {
+  const onAddClick = (e) => {
     e.preventDefault();
-    dispatch(actionCreators.toggleTheme());
+    setShow(true);
   };
 
   useEffect(() => {
     if (!user) {
       router.replace("/login");
     } else {
-      dispatch(actionCreators.getNotes());
+      dispatch(actionCreators.profile());
+      dispatch(actionCreators.getFolders());
     }
   }, [user, router, dispatch]);
 
   return (
-    <div className={theme === "light" ? styles.container : styles.dark_container}>
-      <Head>
-        <title>Just-Notes</title>
-        <meta name="keywords" content="next, next.js, notes, just-notes" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      {show && <FolderModal setShow={setShow} />}
+      <div
+        className={theme === "light" ? styles.container : styles.dark_container}
+      >
+        <Head>
+          <title>Just-Notes</title>
+          <meta name="keywords" content="next, next.js, notes, just-notes" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className={styles.main}>
-        <div className={styles.topDiv}>
-          <div className={styles.title}>
-            <h1>My Notes</h1>
+        <main className={styles.main}>
+          <div className={styles.topDiv}>
+            <h3 className={styles.count}>
+              {folders?.length} {folders?.length === 1 ? "folder" : "folders"}
+            </h3>
+            <h1 className={styles.title}>My Folders</h1>
+            <h1 className={styles.add_folder} onClick={onAddClick}>
+              {theme === "light" ? <HiFolderAdd /> : <HiOutlineFolderAdd />}
+            </h1>
           </div>
 
-          <div className={styles.info}>
-            <h3>{notes?.length} notes</h3>
-            <h2>{profile?.name}</h2>
-            {/* <h3 onClick={toggleMode}>
-              {theme === "dark" ? (
-                <BsFillMoonFill className={styles.mode_icon} />
-              ) : (
-                <BsSunFill className={styles.mode_icon} />
-              )}
-            </h3> */}
-          </div>
-        </div>
-
-        {user && notes && <Notes />}
-      </main>
-    </div>
+          {user && folders && <Folders />}
+        </main>
+      </div>
+    </>
   );
 };
 
@@ -76,7 +70,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const cookieObj = cookie.parse(mycookie);
     if (cookieObj.auth_token) {
       await store.dispatch(actionCreators.profile(cookieObj.auth_token));
-      await store.dispatch(actionCreators.getNotes(cookieObj.auth_token));
+      await store.dispatch(actionCreators.getFolders(cookieObj.auth_token));
     }
   }
 );

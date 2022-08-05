@@ -391,7 +391,8 @@ export const addFolder = ({name})=> async(dispatch)=> {
             dispatch({
                 type: "add-folder",
                 payload: {
-                    folders: res.data.folders
+                    folders: res.data.folders,
+                    profile: JSON.parse(getCookie("jn_profile"))
                 }
             });
             toast.success("Folder added successfully!", {
@@ -526,7 +527,8 @@ export const deleteFolder = (id)=> async(dispatch)=> {
             dispatch({
                 type: "delete-folder",
                 payload: {
-                    folders: res.data.folders
+                    folders: res.data.folders,
+                    profile: JSON.parse(getCookie("jn_profile"))
                 }
             });
             toast.success("Folder deleted successfully!", {
@@ -690,14 +692,14 @@ export const resetNote = ()=> async (dispatch)=> {
     });
 }
 
-export const addNote = ({title, description})=> async(dispatch)=> {
+export const addNote = ({folder, title, description})=> async(dispatch)=> {
     dispatch({
         type: "notes-loading"
     });
 
     const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
     try {
-        const res = await axios.post(`${link}/api/notes/addnote`, {title, description});
+        const res = await axios.post(`${link}/api/notes/addnote?folder=${folder}`, {title, description});
 
         if(res.data.success) {
             if(typeof window !== "undefined") {
@@ -892,10 +894,10 @@ export const deleteNote = (id)=> async(dispatch)=> {
     }
 }
 
-export const getNotes = (token)=> async(dispatch)=> {
+export const getNotes = ({token,id})=> async(dispatch)=> {
     const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
     try {
-        const res = await axios.get(`${link}/api/notes/`, {headers: {"auth_token": token}});
+        const res = await axios.get(`${link}/api/notes?folder=${id}`, {headers: {"auth_token": token}});
 
         if(res.data.success) {
             if(typeof window !== "undefined") {

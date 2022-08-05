@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { wrapper } from "../redux/store";
 import { ToastContainer } from "react-toastify";
 import Navbar from "../components/Navbar";
-import {useSelector, shallowEqual} from "react-redux";
+import {useSelector, shallowEqual, useDispatch} from "react-redux";
 
 import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";

@@ -20,36 +20,42 @@
     background-color: #010125;
 }
 
-.logoDiv {
-    height: 12vh;
-    margin-bottom: 3rem;
+.topDiv {
+    height: 20vh;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    font-size: 1.5rem;
-    /* background-color: brown; */
+    justify-content: space-evenly;
+    /* background-color: orange; */
 }
 
-.navbar .logoDiv {
-    border-bottom: 0.1rem solid #010125;
+.topDiv .top_image {
+    height: 4rem;
+    width: 4rem;
+    border: 0.1rem solid #010125;
+    border-radius: 50%;
+    background: url("/static/images/just_logo.png") center center no-repeat;
+    background-size: cover;
 }
 
-.dark_navbar .logoDiv {
+.dark_navbar .top_image {
+    border: 0.1rem solid aqua;
+}
+
+.dark_navbar .topDiv h3 {
     color: white;
-    border-bottom: 0.1rem solid white;
-}
-
-.logoDiv .logo {
-    margin: 0 0.5rem;
 }
 
 .menu_container {
-    height: 30vh;
+    height: 55vh;
     width: 100%;
     padding: 0.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: orchid; */
 }
 
 .menu_container .menuDiv {
@@ -67,7 +73,7 @@
 .menu_container .menuDiv .menu_icons {
     height: 1.6rem;
     width: 1.6rem;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     font-size: 1.5rem;
 }
 
@@ -99,12 +105,27 @@
     color: aqua;
 }
 
-.bottom {
-    height: 17vh;
-    margin-top: 5vh;
+.logoDiv {
+    height: 12vh;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    /* background-color: palevioletred; */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    /* background-color: brown; */
+}
+
+/* .navbar .logoDiv {
+    border-bottom: 0.1rem solid #010125;
+} */
+
+.dark_navbar .logoDiv {
+    color: white;
+    /* border-bottom: 0.1rem solid white; */
+}
+
+.logoDiv .logo {
+    margin: 0 0.5rem;
 }
 
 .footer {
