@@ -106,16 +106,13 @@
 .logoDiv {
     height: 12vh;
     width: 100%;
+    padding: 0 3rem;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-size: 1.5rem;
     /* background-color: brown; */
 }
-
-/* .navbar .logoDiv {
-    border-bottom: 0.1rem solid #010125;
-} */
 
 .dark_navbar .logoDiv {
     color: white;
@@ -273,19 +270,24 @@
 @media only screen and (min-width: 901px) and (max-width: 1100px) {
     
     .navbar {
-        width: 25%;
+        width: 26%;
         /* background-color: yellowgreen; */
     }
 
     .dark_navbar {
-        width: 25%;
+        width: 26%;
         /* background-color: yellowgreen; */
     }
 
     .menu_container .menuDiv {
         margin: 0.5rem 0;
-        padding: 1rem 2.5rem;
+        padding: 1rem 3rem;
         /* background-color: hotpink; */
+    }
+
+    .logoDiv {
+        padding: 0 3rem;
+        /* background-color: palegreen; */
     }
 }
 

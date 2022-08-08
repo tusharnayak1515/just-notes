@@ -4,4 +4,259 @@
     left: 18%;
     height: 100%;
     width: calc(100vw - 18%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dark_profile {
+    background-color: #010125;
+}
+
+.profile .profile_head {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: orchid; */
+}
+
+.dark_profile .profile_head {
+    color: white;
+}
+
+.profile h1 span {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.profile_container {
+    margin-top: 2rem;
+    min-height: 55vh;
+    max-height: 70vh;
+    padding: 1rem;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.1rem solid #010125;
+    border-radius: 1rem;
+    background-color: white;
+    /* background-color: yellowgreen; */
+}
+
+.dark_profile .profile_container {
+    border: 0.1rem solid white;
+    background-color: #010125;
+}
+
+.profile_container .logo_box {
+    margin-bottom: 1rem;
+    height: 12rem;
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: orange; */
+}
+
+.dark_profile .profile_container .logo_box {
+    color: white;
+}
+
+.profile_container .logo_box span img {
+    height: 7rem !important;
+    width: 7rem !important;
+    border: 0.1rem solid #010125 !important;
+    border-radius: 50% !important;
+}
+
+/* .dark_profile .profile_container .counts {
+    background-color: orange;
+} */
+
+.profile_container input, .profile_container button {
+    outline: none;
+    width: 17rem;
+    border: 0.1rem solid #010125;
+    border-radius: 0.5rem;
+}
+
+.dark_profile .profile_container input, .dark_profile .profile_container button {
+    border: 0.1rem solid white;
+}
+
+.profile_container input {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+}
+
+.dark_profile .profile_container input {
+    color: white;
+    background-color: #010125;
+}
+
+.profile_container button {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.profile_container .editBtn {
+    color: white;
+    background-color: #010125;
+}
+
+.dark_profile .profile_container .editBtn {
+    color: #010125;
+    border: 0.1rem solid aqua;
+    background-color: aqua;
+}
+
+.profile_container .editBtn:hover {
+    color: #010125;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.dark_profile .profile_container .editBtn:hover {
+    color: aqua;
+    background-color: #010125;
+    transition: all 0.2s ease-in-out;
+}
+
+.profile_container .cancelBtn {
+    color: red;
+    background-color: white;
+}
+
+.dark_profile .profile_container .cancelBtn {
+    border: 0.1rem solid red;
+}
+
+.profile_container .cancelBtn:hover {
+    color: white;
+    background-color: red;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+
+    .profile {
+        left: 0;
+        width: 100%;
+    }
+
+    .profile .profile_head {
+        margin-top: 2rem;
+        /* background-color: orchid; */
+    }
+
+    .profile_container {
+        min-height: 40vh;
+        max-height: 65vh;
+        width: 85%;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .profile {
+        left: 0;
+        width: 100%;
+    }
+
+    .profile .profile_head {
+        margin-top: 2rem;
+        /* background-color: orchid; */
+    }
+
+    .profile_container {
+        min-height: 50vh;
+        max-height: 70vh;
+        width: 70%;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .profile {
+        left: 0;
+        width: 100%;
+    }
+
+    .profile .profile_head {
+        margin-top: 2rem;
+        /* background-color: orchid; */
+    }
+
+    .profile_container {
+        min-height: 55vh;
+        max-height: 70vh;
+        width: 60%;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .profile {
+        left: 0;
+        width: 100%;
+    }
+
+    .profile .profile_head {
+        margin-top: 2rem;
+        /* background-color: orchid; */
+    }
+
+    .profile_container {
+        min-height: 60vh;
+        max-height: 70vh;
+        width: 50%;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1100px) {
+
+    .profile {
+        left: 26%;
+        width: calc(100vw - 26%);
+    }
+
+    .profile_container {
+        min-height: 60vh;
+        max-height: 75vh;
+        width: 50%;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 1101px) and (max-width: 1330px) {
+
+    .profile {
+        left: 22%;
+        width: calc(100vw - 22%);
+    }
+
+    .profile_container {
+        min-height: 60vh;
+        max-height: 75vh;
+        width: 50%;
+        /* background-color: yellowgreen; */
+    }
+
 }

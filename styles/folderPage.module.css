@@ -95,8 +95,8 @@
 @media only screen and (min-width: 901px) and (max-width: 1100px) {
 
     .folderPage {
-        left: 25%;
-        width: calc(100vw - 25%);
+        left: 26%;
+        width: calc(100vw - 26%);
         /* background-color: orange; */
     }
 

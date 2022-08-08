@@ -135,7 +135,7 @@
     .notes {
         padding: 1rem;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 1rem;
+        grid-column-gap: 0.7rem;
         grid-row-gap: 1.5rem;
         /* background-color: palegreen; */
     }

@@ -95,8 +95,8 @@
 
   .container, .dark_container {
     top: 0;
-    left: 25%;
-    width: calc(100vw - 25%);
+    left: 26%;
+    width: calc(100vw - 26%);
   }
 
 }

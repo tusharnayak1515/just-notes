@@ -203,7 +203,7 @@ export const editProfile = ({name, email})=> async(dispatch)=> {
             dispatch({
                 type: "edit-profile",
                 payload: {
-                    profile: getCookie("jn_profile")
+                    profile: JSON.parse(getCookie("jn_profile"))
                 }
             });
             toast.success("Profile updated successfully!", {
@@ -932,6 +932,57 @@ export const getNotes = ({token,id})=> async(dispatch)=> {
     } catch (error) {
         dispatch({
             type: "get-notes",
+            payload: {
+              error: error,
+            }
+        });
+        toast.error(error, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+    }
+}
+
+export const getAllNotes = (token)=> async(dispatch)=> {
+    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    try {
+        const res = await axios.get(`${link}/api/notes/getallnotes`, {headers: {"auth_token": token}});
+
+        if(res.data.success) {
+            dispatch({
+                type: "get-user-notes",
+                payload: {
+                    notes: res.data.notes
+                }
+            });
+        }
+
+        if(res.data.error) {
+            dispatch({
+                type: "get-user-notes",
+                payload: {
+                    error: res.data.error
+                }
+            });
+            toast.error(res.data.error, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+    } catch (error) {
+        dispatch({
+            type: "get-user-notes",
             payload: {
               error: error,
             }

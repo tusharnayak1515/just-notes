@@ -11,6 +11,7 @@ if(typeof window !== "undefined") {
 
 const initState = {
     notes: isNotes,
+    allNotes: null,
     note: null,
     isLoading: false
 }
@@ -34,6 +35,21 @@ const notesReducer = (state = initState, action)=> {
         return {
             ...state,
             notes: notes,
+            isLoading: false
+        }
+    }
+
+    else if(action.type === "get-user-notes") {
+        const { notes, error } = action.payload;
+        if(error) {
+            return {
+                ...state,
+                isLoading: false
+            }
+        }
+        return {
+            ...state,
+            allNotes: notes,
             isLoading: false
         }
     }

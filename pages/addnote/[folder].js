@@ -22,7 +22,7 @@ const Addnote = () => {
             <title>Add Note</title>
             <meta
               name="keywords"
-              content={"next, next.js, notes, just-notes"}
+              content="next, next.js, notes, just-notes, add note"
             />
             <link rel="icon" href="/favicon.ico" />
         </Head>
