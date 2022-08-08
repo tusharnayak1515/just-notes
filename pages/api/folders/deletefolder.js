@@ -37,7 +37,7 @@ const handler = async (req, res)=> {
       folder = await Folder.findByIdAndDelete(folderId, {new: true});
 
       const folders = await Folder.find({user: userId})
-        .sort("-createdAt");
+        .sort({name: 1});
 
       setCookie("jn_profile", JSON.stringify(user), (req, res));
 

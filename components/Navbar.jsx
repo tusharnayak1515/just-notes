@@ -40,6 +40,7 @@ const Navbar = () => {
             style={{ 
                 fontWeight: router.pathname === "/" ? "bold" : "normal", 
                 color: (router.pathname === "/" && theme === "dark") && "aqua" }}
+            onClick={()=> router.push("/")}
           />
           <Link href="/">
             <span
@@ -60,6 +61,7 @@ const Navbar = () => {
               fontWeight: router.pathname === "/profile" ? "bold" : "normal",
               color: (router.pathname === "/profile" && theme === "dark") && "aqua"
             }}
+            onClick={()=> router.push("/profile")}
           />
           <Link href="/profile">
             <span
@@ -75,9 +77,9 @@ const Navbar = () => {
 
         <div className={styles.menuDiv}>
           {theme === "dark" ? (
-            <BsFillMoonFill className={styles.menu_icons} />
+            <BsFillMoonFill className={styles.menu_icons} onClick={toggleMode} />
           ) : (
-            <BsSun className={styles.menu_icons} />
+            <BsSun className={styles.menu_icons} onClick={toggleMode} />
           )}
           <span onClick={toggleMode} className={styles.modeBtn}>
             {theme === "light" ? "Light" : "Dark"} Mode
@@ -85,7 +87,7 @@ const Navbar = () => {
         </div>
 
         <div className={styles.menuDiv}>
-          <BiLogOut className={styles.menu_icons} />
+          <BiLogOut className={styles.menu_icons} onClick={onLogout} />
           <span onClick={onLogout}>Logout</span>
         </div>
       </div>

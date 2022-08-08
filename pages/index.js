@@ -49,7 +49,7 @@ const Home = () => {
             <h3 className={styles.count}>
               {folders?.length} {folders?.length === 1 ? "folder" : "folders"}
             </h3>
-            <h1 className={styles.title}>My Folders</h1>
+            <h2 className={styles.title}>My Folders</h2>
             <h1 className={styles.add_folder} onClick={onAddClick}>
               {theme === "light" ? <HiFolderAdd /> : <HiOutlineFolderAdd />}
             </h1>

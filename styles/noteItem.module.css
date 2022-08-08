@@ -1,6 +1,6 @@
 .noteItem {
-    height: 20rem;
-    width: 20rem;
+    height: 15rem;
+    width: 15rem;
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +22,7 @@
 
 .noteItem .title {
     width: 100%;
+    word-wrap: break-word;
     /* background-color: blueviolet; */
 }
 
@@ -43,4 +44,67 @@
 
 .dark_item .description {
     color: white;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+
+    .noteItem {
+        height: 17rem;
+        width: 17rem;
+        margin: auto;
+        /* background-color: orange; */
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+    .noteItem {
+        height: 14rem;
+        width: 14rem;
+        /* background-color: orange; */
+    }
+
+}
+
+@media only screen and (min-width: 601px) and (max-width: 720px) {
+
+    .noteItem {
+        height: 12rem;
+        width: 12rem;
+        /* background-color: orange; */
+    }
+
+}
+
+@media only screen and (min-width: 721px) and (max-width: 900px) {
+
+    .noteItem {
+        height: 13rem;
+        width: 13rem;
+        /* background-color: orange; */
+    }
+
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1100px) {
+
+    .noteItem {
+        height: 13rem;
+        width: 13rem;
+        /* background-color: orange; */
+    }
+
+}
+
+@media only screen and (min-width: 1101px) and (max-width: 1330px) {
+
+    .noteItem {
+        height: 12.5rem;
+        width: 12.5rem;
+        /* background-color: orange; */
+    }
+
 }

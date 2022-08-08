@@ -1,9 +1,9 @@
 .folderPage {
     position: absolute;
     top: 0;
-    left: 14%;
+    left: 18%;
     height: 100%;
-    width: calc(100vw - 14%);
+    width: calc(100vw - 18%);
     /* background-color: orange; */
 }
 
@@ -15,9 +15,9 @@
     position: relative;
     height: 15vh;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 5rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 0.1rem solid #010125;
     /* background-color: yellowgreen; */
@@ -74,3 +74,50 @@
 .dark_folderPage .upperDiv .back_btn:hover {
     color: aqua;
 }
+
+/* Media Queries */
+
+@media only screen and (max-width: 900px) {
+
+    .folderPage {
+        left: 0;
+        width: 100%;
+        /* background-color: orange; */
+    }
+
+    .folderPage .upperDiv {
+        padding: 1rem 2rem;
+        /* background-color: yellowgreen; */
+    }
+
+} 
+
+@media only screen and (min-width: 901px) and (max-width: 1100px) {
+
+    .folderPage {
+        left: 25%;
+        width: calc(100vw - 25%);
+        /* background-color: orange; */
+    }
+
+    /* .folderPage .upperDiv {
+        padding: 1rem 4rem;
+        background-color: yellowgreen;
+    } */
+
+} 
+
+@media only screen and (min-width: 1101px) and (max-width: 1330px) {
+
+    .folderPage {
+        left: 22%;
+        width: calc(100vw - 22%);
+        /* background-color: orange; */
+    }
+
+    /* .folderPage .upperDiv {
+        padding: 1rem 2rem;
+        background-color: yellowgreen;
+    } */
+
+} 

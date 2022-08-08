@@ -1,6 +1,7 @@
-.folderItem {
+.folder_item {
     height: 8rem;
     width: 6rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,15 +10,48 @@
     /* background-color: yellowgreen; */
 }
 
-.dark_folder span img {
-    color: white !important;
-}
-
-.folderItem p {
+.folder_item p {
     text-align: center;
     word-wrap: break-word;
 }
 
-.dark_folder p {
+.dark_folderItem p {
     color: white;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 400px) {
+
+    .folder_item {
+        height: 4.5rem;
+        width: 4.5rem;
+        margin: 0.5rem;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 401px) and (max-width: 480px) {
+
+    .folder_item {
+        height: 5rem;
+        width: 5rem;
+        /* padding: 0.2rem; */
+        margin: 0.5rem 0.3rem;
+        /* background-color: yellowgreen; */
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+
+    .folder_item {
+        height: 6rem;
+        width: 6rem;
+        /* padding: 0.2rem; */
+        margin: 0.5rem;
+        /* background-color: yellowgreen; */
+    }
+
 }

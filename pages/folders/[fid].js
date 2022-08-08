@@ -5,8 +5,8 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { actionCreators } from '../../redux';
 import { wrapper } from '../../redux/store';
 import * as cookie from "cookie";
-import { MdEdit } from "react-icons/md";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { HiMenuAlt2 } from "react-icons/hi";
 
 import styles from '../../styles/folderPage.module.css';
 import Notes from '../../components/Notes';
@@ -17,7 +17,7 @@ const FolderPage = () => {
   const dispatch = useDispatch();
   const {user, theme} = useSelector(state=> state.default.userReducer,shallowEqual);
   const {folder} = useSelector(state=> state.default.foldersReducer,shallowEqual);
-  const {notes} = useSelector(state=> state.default.notesReducer,shallowEqual);
+//   const {notes} = useSelector(state=> state.default.notesReducer,shallowEqual);
   const [show, setShow] = useState(false);
 
   const onEditClick = (e)=> {
@@ -57,7 +57,7 @@ const FolderPage = () => {
             {/* <h2 className={styles.count}>{notes?.length} notes</h2> */}
             <h1 className={styles.back_btn} onClick={onBack}><MdOutlineKeyboardBackspace /></h1>
             <h1 className={styles.folder_name}>{folder?.name}</h1>
-            <h2 className={styles.folder_edit} onClick={onEditClick}><MdEdit /></h2>
+            <h2 className={styles.folder_edit} onClick={onEditClick}><HiMenuAlt2 /></h2>
         </div>
 
         {(user && folder) && <Notes folder={folder?._id} />}        

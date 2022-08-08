@@ -4,6 +4,7 @@ const {Schema} = mongoose;
 const FolderSchema = new Schema({
     name: {
         type: String,
+        lowercase: true,
         required: true
     },
     notes: [

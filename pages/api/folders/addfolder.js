@@ -9,7 +9,7 @@ import Note from "../../../models/Note";
 
 const schema = (input) => 
 Joi.object({
-    name: Joi.string().replace(/\s/g, "").trim().min(3).max(20).required().messages({
+    name: Joi.string().replace(/\s/g, "").trim().min(3).max(15).required().messages({
         'name.min': '{#label} should contain at least {#min} characters!',
         'name.max': '{#label} should contain at most {#max} characters!',
         'name.required': '{#label} cannot be empty!',
@@ -45,7 +45,7 @@ const handler = async (req, res)=> {
         .select("-folders");
 
       const folders = await Folder.find({user: userId})
-        .sort("-createdAt");
+        .sort({name: 1});
 
       setCookie("jn_profile", JSON.stringify(user), (req, res));
 

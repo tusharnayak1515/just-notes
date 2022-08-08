@@ -1,7 +1,7 @@
 .profile {
     position: absolute;
     top: 0;
-    left: 14%;
+    left: 18%;
     height: 100%;
-    width: calc(100vw - 14%);
+    width: calc(100vw - 18%);
 }

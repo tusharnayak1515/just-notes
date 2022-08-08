@@ -1,21 +1,19 @@
 .navbar {
     /* display: none; */
     position: fixed;
-    top: 0;
     left: 0;
     height: 100vh;
-    width: 14%;
+    width: 18%;
     border-right: 0.1rem solid #010125;
     background-color: white;
-    /* background-color: #010125; */
+    /* background-color: yellowgreen; */
 }
 
 .dark_navbar {
     position: fixed;
-    top: 0;
     left: 0;
     height: 100vh;
-    width: 14%;
+    width: 18%;
     border-right: 0.1rem solid white;
     background-color: #010125;
 }
@@ -60,7 +58,7 @@
 
 .menu_container .menuDiv {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     margin: 0.5rem 0;
     font-size: 1.2rem;
     display: flex;
@@ -140,4 +138,171 @@
 
 .dark_navbar .footer {
     color: white;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+
+    .navbar {
+        bottom: 0;
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-top: 0.1rem solid #010125;
+        background-color: white;
+        z-index: 10000;
+    }
+
+    .dark_navbar {
+        bottom: 0;
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-top: 0.1rem solid white;
+        background-color: #010125;
+        z-index: 10000;
+    }
+
+    .menu_container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* flex-wrap: wrap; */
+        height: 100%;
+        width: 100%;
+        padding: 0.5rem 0;
+        /* background-color: aqua; */
+    }
+
+    .menu_container .menuDiv {
+        justify-content: center;
+        padding: 0;
+        /* background-color: aliceblue; */
+    }
+
+    .menu_container .menuDiv .menu_icons {
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-right: 0;
+        /* background-color: yellowgreen; */
+    }
+
+    .topDiv {
+        display: none;
+    }
+
+    .menuDiv span {
+        display: none;
+    }
+
+    .logoDiv {
+        display: none;
+    }
+    
+}
+
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+
+    .navbar {
+        bottom: 0;
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-top: 0.1rem solid #010125;
+        background-color: white;
+        z-index: 10000;
+    }
+
+    .dark_navbar {
+        bottom: 0;
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-top: 0.1rem solid white;
+        background-color: #010125;
+        z-index: 10000;
+    }
+
+    .menu_container {
+        flex-direction: row;
+        height: 100%;
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .menu_container .menuDiv {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .menu_container .menuDiv .menu_icons {
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-right: 0rem;
+        /* background-color: yellowgreen; */
+    }
+
+    .topDiv {
+        display: none;
+    }
+
+    .menuDiv span {
+        display: none;
+    }
+
+    .logoDiv {
+        display: none;
+    }
+    
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1100px) {
+    
+    .navbar {
+        width: 25%;
+        /* background-color: yellowgreen; */
+    }
+
+    .dark_navbar {
+        width: 25%;
+        /* background-color: yellowgreen; */
+    }
+
+    .menu_container .menuDiv {
+        margin: 0.5rem 0;
+        padding: 1rem 2.5rem;
+        /* background-color: hotpink; */
+    }
+}
+
+@media only screen and (min-width: 1101px) and (max-width: 1330px) {
+
+    .navbar {
+        width: 22%;
+        /* background-color: yellowgreen; */
+    }
+
+    .dark_navbar {
+        width: 22%;
+        /* background-color: yellowgreen; */
+    }
+
+    .menu_container .menuDiv {
+        margin: 0.5rem 0;
+        /* background-color: hotpink; */
+    }
 }

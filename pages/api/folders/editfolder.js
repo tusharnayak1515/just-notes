@@ -48,7 +48,7 @@ const handler = async (req, res)=> {
       folder = await Folder.findByIdAndUpdate(folderId, {name: name}, {new: true});
 
       const folders = await Folder.find({user: userId})
-        .sort("-createdAt");
+        .sort({name: 1});
 
       success = true;
       return res.status(200).json({ success, folder, folders });

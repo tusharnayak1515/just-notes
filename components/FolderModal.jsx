@@ -25,7 +25,7 @@ const FolderModal = ({myfolder, setShow}) => {
 
     const onAdd = (e)=> {
         e.preventDefault();
-        if(folder.name.replace(/\s/g, "").trim().length >= 3 && folder.name.replace(/\s/g, "").trim().length <= 20) {
+        if(folder.name.replace(/\s/g, "").trim().length >= 3 && folder.name.replace(/\s/g, "").trim().length <= 15) {
             dispatch(actionCreators.addFolder(folder));
             setShow(false);
         }
@@ -44,7 +44,7 @@ const FolderModal = ({myfolder, setShow}) => {
 
     const onEdit = (e)=> {
         e.preventDefault();
-        if(folder.name.replace(/\s/g, "").trim().length >= 3 && folder.name.replace(/\s/g, "").trim().length <= 20) {
+        if(folder.name.replace(/\s/g, "").trim().length >= 3 && folder.name.replace(/\s/g, "").trim().length <= 15) {
             dispatch(actionCreators.editFolder(folder));
             setShow(false);
         }

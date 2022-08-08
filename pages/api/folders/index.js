@@ -18,7 +18,7 @@ const handler = async (req, res)=> {
       }
       
       const folders = await Folder.find({user: userId})
-        .sort("-createdAt");
+        .sort({name: 1});
 
       success = true;
       return res.json({ success, folders, status: 200 });
