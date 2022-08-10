@@ -72,6 +72,10 @@
     border-radius: 50% !important;
 }
 
+.dark_profile .profile_container .logo_box span img {
+    border: 0.1rem solid aqua !important;
+}
+
 /* .dark_profile .profile_container .counts {
     background-color: orange;
 } */
