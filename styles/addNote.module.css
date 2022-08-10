@@ -18,11 +18,27 @@
 
 /* Media Queries */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 900px) {
     .addNote {
         left: 0;
         width: 100%;
         padding-bottom: 5rem;
+        /* background-color: orchid; */
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1100px) {
+    .addNote {
+        left: 26%;
+        width: calc(100vw - 26%);
+        /* background-color: orchid; */
+    }
+}
+
+@media only screen and (min-width: 1101px) and (max-width: 1330px) {
+    .addNote {
+        left: 22%;
+        width: calc(100vw - 22%);
         /* background-color: orchid; */
     }
 }
