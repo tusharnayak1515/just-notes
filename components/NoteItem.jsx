@@ -17,7 +17,7 @@ const NoteItem = ({ note }) => {
     <div className={`${styles.noteItem} ${theme === "light" ? styles.light_item : styles.dark_item}`} onClick={onClickHandler}>
       <h2 className={styles.title}>{note.title}</h2>
       <h4 className={styles.description}>
-        {note.description.replace(/\s/g, "").trim().substring(0, 300)}...
+        {note.description.replace(/\s/g, "").trim().substring(0, 70)}...
       </h4>
     </div>
   );

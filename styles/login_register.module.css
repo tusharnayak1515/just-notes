@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Josefin+Sans:wght@700&family=Secular+One&family=Taviraj:wght@500&family=Titillium+Web&display=swap');
+
 .wrapper {
     /* position: absolute; */
     /* left: 14%; */
@@ -32,6 +34,15 @@
     color: white;
     text-align: center;
     /* background-color: orange; */
+}
+
+.wrapper .banner .heading h1 {
+    margin-bottom: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrapper .banner .heading h2 {
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .wrapper .banner .features {
@@ -69,6 +80,7 @@
 
 .wrapper .banner .features .flexDiv .feature p {
     width: 100%;
+    font-family: 'Taviraj', serif;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -94,6 +106,10 @@
     font-size: 1.5rem;
 }
 
+.wrapper .banner .footer .footer_content {
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
 .wrapper .rightDiv {
     position: relative;
     display: flex;
@@ -116,7 +132,7 @@
 .wrapper .rightDiv .form {
     min-height: 55vh;
     width: 55%;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,9 +142,9 @@
     background-color: white;
 }
 
-/* .wrapper .rightDiv .form h1 {
-    color: white;
-} */
+.wrapper .rightDiv .form h1 {
+    font-family: 'Secular One', sans-serif;
+}
 
 .wrapper .rightDiv .form input, .wrapper .rightDiv .form button {
     outline: none;
@@ -141,6 +157,7 @@
     margin: 1rem 0;
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
+    font-family: 'Baloo Bhai 2', cursive;
 }
 
 .wrapper .rightDiv .form button {
@@ -148,6 +165,7 @@
     padding: 0.5rem 2rem;
     color: white;
     font-size: 1.2rem;
+    font-family: 'Taviraj', serif;
     cursor: pointer;
     background-color: purple;
 }
@@ -156,6 +174,10 @@
     color: purple;
     background-color: white;
     transition: all 0.2s ease-in-out;
+}
+
+.wrapper .rightDiv .form p {
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .wrapper .rightDiv .form .otherText {
@@ -192,7 +214,6 @@
     }
 
     .wrapper .rightDiv .form {
-        /* min-height: 60vh; */
         width: 70%;
         padding: 2rem 0;
     }
@@ -209,7 +230,6 @@
     }
 
     .wrapper .rightDiv .form {
-        /* min-height: 60vh; */
         width: 60%;
         padding: 2rem 0;
     }
@@ -226,7 +246,6 @@
     }
 
     .wrapper .rightDiv .form {
-        /* min-height: 60vh; */
         width: 53%;
         padding: 2rem 0;
     }
@@ -235,7 +254,6 @@
  @media only screen and (min-width: 901px) and (max-width: 1200px) {
 
     .wrapper .rightDiv .form {
-        /* min-height: 60vh; */
         width: 70%;
         padding: 2rem 0;
     }

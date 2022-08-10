@@ -1,11 +1,10 @@
 .noteItem {
-    height: 15rem;
-    width: 15rem;
+    height: 12.3rem;
+    width: 12.3rem;
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* align-items: center; */
     border-radius: 1rem;
     cursor: pointer;
 }
