@@ -34,6 +34,10 @@ const handler = async (req, res)=> {
         .select("-password")
         .select("-folders");
 
+      for(let i=0; i<folder.notes.length; i++) {
+        let note = await Note.findByIdAndDelete(folder.notes[i].toString(),{new: true});
+      }
+
       folder = await Folder.findByIdAndDelete(folderId, {new: true});
 
       const folders = await Folder.find({user: userId})
