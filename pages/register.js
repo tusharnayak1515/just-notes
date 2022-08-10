@@ -127,7 +127,7 @@ const Register = () => {
         <div className={styles.rightDiv}>
           <div className={styles.form}>
             <h1>Register</h1>
-            <input type="email" placeholder='Enter Name' name="name" value={userDetails.email} onChange={onChangeHandler} />
+            <input type="text" placeholder='Enter Name' name="name" value={userDetails.name} onChange={onChangeHandler} />
             <input type="email" placeholder='Enter your Email' name="email" value={userDetails.email} onChange={onChangeHandler} />
             <input type="password" placeholder='Enter Password' name="password" value={userDetails.password} onChange={onChangeHandler} />
             <button onClick={onRegister}>Register</button>
