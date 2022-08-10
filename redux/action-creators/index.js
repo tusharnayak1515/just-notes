@@ -16,7 +16,7 @@ export const register = ({name, email, password})=> async(dispatch)=> {
         type: "user-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${link}/api/auth/register`, {name, email, password});
 
@@ -80,7 +80,7 @@ export const login = ({email, password})=> async(dispatch)=> {
         type: "user-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${link}/api/auth/login`, {email, password});
 
@@ -140,7 +140,7 @@ export const login = ({email, password})=> async(dispatch)=> {
 }
 
 export const profile = (token)=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/auth/profile/`, {headers: {"auth_token": token}});
         // const myprofile = getCookie("jn_profile") !== undefined ? getCookie("jn_profile") : res.data.user;
@@ -195,7 +195,7 @@ export const editProfile = ({name, email})=> async(dispatch)=> {
         type: "user-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${link}/api/auth/editprofile`, {name, email});
 
@@ -255,7 +255,7 @@ export const editProfile = ({name, email})=> async(dispatch)=> {
 }
 
 export const logout = ()=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/auth/logout`);
 
@@ -319,7 +319,7 @@ export const logout = ()=> async(dispatch)=> {
 // ****************************** Folders Section ******************************* \\
 
 export const getFolder = (id,token)=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/folders/getfolder?folder=${id}`, {headers: {"auth_token": token}});
 
@@ -380,7 +380,7 @@ export const addFolder = ({name})=> async(dispatch)=> {
         type: "folders-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${link}/api/folders/addfolder`, {name});
 
@@ -448,7 +448,7 @@ export const editFolder = ({id,name})=> async(dispatch)=> {
         type: "folders-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${link}/api/folders/editfolder?folder=${id}`, {name});
 
@@ -516,7 +516,7 @@ export const deleteFolder = (id)=> async(dispatch)=> {
         type: "folders-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.delete(`${link}/api/folders/deletefolder?folder=${id}`);
 
@@ -580,7 +580,7 @@ export const deleteFolder = (id)=> async(dispatch)=> {
 }
 
 export const getFolders = (token)=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/folders/`, {headers: {"auth_token": token}});
 
@@ -636,7 +636,7 @@ export const getFolders = (token)=> async(dispatch)=> {
 // ****************************** Notes Section ******************************* \\
 
 export const getNote = (id,token)=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/notes/getnote?note=${id}`, {headers: {"auth_token": token}});
 
@@ -697,7 +697,7 @@ export const addNote = ({folder, title, description})=> async(dispatch)=> {
         type: "notes-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.post(`${link}/api/notes/addnote?folder=${folder}`, {title, description});
 
@@ -764,7 +764,7 @@ export const editNote = ({id, title, description})=> async(dispatch)=> {
         type: "notes-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.put(`${link}/api/notes/editnote?note=${id}`, {title, description});
 
@@ -832,7 +832,7 @@ export const deleteNote = (id)=> async(dispatch)=> {
         type: "notes-loading"
     });
 
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.delete(`${link}/api/notes/deletenote?note=${id}`);
 
@@ -895,7 +895,7 @@ export const deleteNote = (id)=> async(dispatch)=> {
 }
 
 export const getNotes = ({token,id})=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/notes?folder=${id}`, {headers: {"auth_token": token}});
 
@@ -949,7 +949,7 @@ export const getNotes = ({token,id})=> async(dispatch)=> {
 }
 
 export const getAllNotes = (token)=> async(dispatch)=> {
-    const link = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+    const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
     try {
         const res = await axios.get(`${link}/api/notes/getallnotes`, {headers: {"auth_token": token}});
 

@@ -2,7 +2,7 @@ import fetchUser from '../../../middlewares/fetchUser';
 import { getCookie, deleteCookie } from 'cookies-next';
 
 const handler = async (req, res)=> {
-  const link = process.env.NODE_ENV === "production" ? "https://just-project-manager.vercel.app" : "http://localhost:3000";
+  const link = process.env.NODE_ENV === "production" ? "https://just-notes.vercel.app" : "http://localhost:3000";
   if (req.method === 'GET') {
     let success;
     try {
