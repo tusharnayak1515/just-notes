@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap');
+
 .folderPage {
     position: absolute;
     top: 0;
@@ -21,6 +23,10 @@
     align-items: center;
     border-bottom: 0.1rem solid #010125;
     /* background-color: yellowgreen; */
+}
+
+.folderPage .upperDiv .folder_name {
+    font-family: 'Spectral', serif;
 }
 
 .dark_folderPage .upperDiv {

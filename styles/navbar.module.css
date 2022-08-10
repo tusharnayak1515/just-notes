@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Play&family=Vollkorn:wght@500&display=swap');
+
 .navbar {
     /* display: none; */
     position: fixed;
@@ -36,6 +38,10 @@
     border-radius: 50%;
     background: url("/static/images/just_logo.png") center center no-repeat;
     background-size: cover;
+}
+
+.topDiv h3 {
+    font-family: 'Vollkorn', serif;
 }
 
 .dark_navbar .top_image {
@@ -84,6 +90,7 @@
 }
 
 .menu_container .menuDiv span {
+   font-family: 'Play', sans-serif;
    cursor: pointer;
 }
 
@@ -120,6 +127,7 @@
 }
 
 .logoDiv .logo {
+    font-family: 'Acme', sans-serif;
     margin: 0 0.5rem;
 }
 

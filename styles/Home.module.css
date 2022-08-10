@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai&family=Spectral:wght@700&display=swap');
+
 .container, .dark_container {
   position: absolute;
   top: 0;
@@ -35,6 +37,10 @@
   /* background-color: yellowgreen; */
 }
 
+.main .topDiv .title {
+  font-family: 'Spectral', serif;
+}
+
 .dark_container .main .topDiv {
   border-bottom: 0.1rem solid white;
 }
@@ -44,6 +50,7 @@
 }
 
 .main .topDiv .count {
+  font-family: 'Almarai', sans-serif;
   color: grey;
 }
 

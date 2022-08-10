@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Lato:wght@700&family=Lora&family=PT+Serif&display=swap');
+
 .noteForm {
     height: 100vh;
     width: 100%;
@@ -14,6 +16,7 @@
 
 .noteForm label {
     font-size: 1.3rem;
+    font-family: 'PT Serif', serif;
     margin-bottom: 0.5rem;
 }
 
@@ -35,6 +38,7 @@
     width: 100%;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
+    font-family: 'Lato', sans-serif;
     border: 0.1rem solid grey;
     border-radius: 0.5rem;
 }
@@ -51,6 +55,7 @@
 
 .noteForm .descriptionDiv textarea {
     height: 100%;
+    font-family: 'Lora', serif;
     overflow-y: scroll;
     resize: none;
 }
@@ -87,6 +92,7 @@
     padding: 0.3rem 1rem;
     margin: 0 0.5rem;
     font-size: 1.3rem;
+    font-family: 'Inconsolata', monospace;
     border-radius: 0.5rem;
     cursor: pointer;
 }

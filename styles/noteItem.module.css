@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Lora&display=swap');
+
 .noteItem {
     height: 12.3rem;
     width: 12.3rem;
@@ -21,6 +23,7 @@
 
 .noteItem .title {
     width: 100%;
+    font-family: 'Lato', sans-serif;
     word-wrap: break-word;
     /* background-color: blueviolet; */
 }
@@ -31,6 +34,7 @@
 
 .noteItem .description {
     width: 100%;
+    font-family: 'Lora', serif;
     font-weight: normal;
     margin-top: 1rem;
     word-wrap: break-word;

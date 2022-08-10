@@ -19,7 +19,7 @@ const FolderItem = ({folder}) => {
   return (
     <div className={`${styles.folder_item} ${theme === "dark" && styles.dark_folderItem}`} onClick={onFolderClick}>
       <Image src={theme === "light" ? lightFolder : lightFolder} alt="Folder" />
-      <p>{folder.name.substring(0,8)}...</p>
+      <p>{folder.name.substring(0,8)}</p>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
 .folder_item {
     height: 8rem;
     width: 6rem;
@@ -11,6 +13,7 @@
 }
 
 .folder_item p {
+    font-family: 'Baloo 2', cursive;
     text-align: center;
     word-wrap: break-word;
 }
