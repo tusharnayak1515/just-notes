@@ -57,7 +57,7 @@ const handler = async (req, res)=> {
 
       note = await Note.findByIdAndUpdate(noteId, {title: title, description: description}, {new: true});
 
-      const notes = await Note.find({user: userId})
+      const notes = await Note.find({user: userId, folder: folderId})
         .sort("-createdAt");
 
       success = true;

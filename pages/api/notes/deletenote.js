@@ -40,7 +40,7 @@ const handler = async (req, res)=> {
 
       note = await Note.findByIdAndDelete(noteId, {new: true});
 
-      const notes = await Note.find({user: userId})
+      const notes = await Note.find({user: userId, folder: folderId})
         .sort("-createdAt");
 
       success = true;
