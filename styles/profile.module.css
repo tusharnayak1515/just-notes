@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
 }
 
 .dark_profile {
@@ -15,6 +16,7 @@
 
 .profile .profile_head {
     margin-top: 4rem;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;

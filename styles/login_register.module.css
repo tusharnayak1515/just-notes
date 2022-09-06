@@ -143,6 +143,7 @@
 }
 
 .wrapper .rightDiv .form h1 {
+    color: black;
     font-family: 'Secular One', sans-serif;
 }
 
@@ -158,6 +159,7 @@
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
     font-family: 'Baloo Bhai 2', cursive;
+    background-color: white;
 }
 
 .wrapper .rightDiv .form button {

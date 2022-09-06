@@ -6,6 +6,7 @@
     left: 18%;
     height: 100%;
     width: calc(100vw - 18%);
+    background-color: white;
     /* background-color: orange; */
 }
 
@@ -33,9 +34,17 @@
     border-bottom: 0.1rem solid white;
 }
 
+.folderPage .upperDiv .count {
+    color: white;
+}
+
 .dark_folderPage .upperDiv .count {
     color: white;
-} 
+}
+
+.folderPage .upperDiv .folder_name {
+    color: black;
+}
 
 .dark_folderPage .upperDiv .folder_name {
     color: white;
@@ -44,6 +53,7 @@
 .upperDiv .folder_edit {
     height: 2rem;
     width: 2rem;
+    color: black;
     font-size: 2rem;
     cursor: pointer;
     /* background-color: palevioletred; */
@@ -64,6 +74,7 @@
 .upperDiv .back_btn {
     height: 3rem;
     width: 3rem;
+    color: black;
     font-size: 3rem;
     cursor: pointer;
     /* background-color: palevioletred; */

@@ -25,7 +25,7 @@ const Register = () => {
     e.preventDefault();
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
-    if((userDetails.name.length >= 4 && userDetails.name.length <= 25) && emailRegex.test(userDetails.email) === true && passwordRegex.test(userDetails.password)) {
+    if((userDetails.name.length >= 4 && userDetails.name.length <= 25) && emailRegex.test(userDetails.email) === true && passwordRegex.test(userDetails.password) === true) {
       dispatch(actionCreators.register(userDetails));
   }
     else {

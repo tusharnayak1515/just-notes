@@ -13,6 +13,7 @@
 }
 
 .folder_item p {
+    color: black;
     font-family: 'Baloo 2', cursive;
     text-align: center;
     word-wrap: break-word;

@@ -49,6 +49,10 @@
   color: white;
 }
 
+.container .main .topDiv .title {
+  color: black;
+}
+
 .main .topDiv .count {
   font-family: 'Almarai', sans-serif;
   color: grey;
@@ -57,6 +61,7 @@
 .main .topDiv .add_folder {
   height: 3rem;
   width: 3rem;
+  color: black;
   font-size: 3rem;
   cursor: pointer;
   /* background-color: palevioletred; */

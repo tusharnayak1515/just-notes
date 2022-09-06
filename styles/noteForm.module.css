@@ -15,6 +15,7 @@
 }
 
 .noteForm label {
+    color: black;
     font-size: 1.3rem;
     font-family: 'PT Serif', serif;
     margin-bottom: 0.5rem;
@@ -28,6 +29,7 @@
     outline: none;
     width: 100%;
     padding: 0.5rem 1rem;
+    color: black;
     font-size: 1.2rem;
     border: 0.1rem solid grey;
     border-radius: 0.5rem;
