@@ -33,6 +33,7 @@
 }
 
 .modal .folder_head {
+    color: black;
     font-family: 'Josefin Sans', sans-serif;
     margin-bottom: 1rem;
 }
@@ -46,7 +47,9 @@
 }
 .modal input {
     margin-bottom: 1rem;
+    color: black;
     border: 0.1rem solid #010118;
+    background-color: white;
 }
 
 .modal button {
