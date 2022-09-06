@@ -33,6 +33,7 @@
     font-size: 1.2rem;
     border: 0.1rem solid grey;
     border-radius: 0.5rem;
+    background-color: white;
 }
 
 .noteForm .titleDiv input {
@@ -142,4 +143,20 @@
     color: white;
     background-color: red;
     transition: all 0.2s ease-in-out;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+    .noteForm .btnDiv .btn_container button {
+        height: 3rem;
+        width: 6rem;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+    .noteForm .btnDiv .btn_container button {
+        height: 3rem;
+        width: 7rem;
+    }
 }
