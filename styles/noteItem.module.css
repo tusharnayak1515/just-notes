@@ -23,6 +23,7 @@
 
 .noteItem .title {
     width: 100%;
+    color: black;
     font-family: 'Lato', sans-serif;
     word-wrap: break-word;
     /* background-color: blueviolet; */
