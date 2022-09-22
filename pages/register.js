@@ -125,14 +125,14 @@ const Register = () => {
         </div>
 
         <div className={styles.rightDiv}>
-          <div className={styles.form}>
+          <form className={styles.form} onSubmit={onRegister}>
             <h1>Register</h1>
             <input type="text" placeholder='Enter Name' name="name" value={userDetails.name} onChange={onChangeHandler} />
             <input type="email" placeholder='Enter your Email' name="email" value={userDetails.email} onChange={onChangeHandler} />
             <input type="password" placeholder='Enter Password' name="password" value={userDetails.password} onChange={onChangeHandler} />
-            <button onClick={onRegister}>Register</button>
+            <button>Register</button>
             <p>Have an account? <Link href="/login"><b className={styles.otherText}>Login</b></Link></p>
-          </div>
+          </form>
         </div>
         
     </div>

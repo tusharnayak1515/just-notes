@@ -157,6 +157,7 @@
 .wrapper .rightDiv .form input {
     margin: 1rem 0;
     padding: 0.5rem 0.7rem;
+    color: black;
     font-size: 1.2rem;
     font-family: 'Baloo Bhai 2', cursive;
     background-color: white;

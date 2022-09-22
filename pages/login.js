@@ -113,13 +113,13 @@ const Login = () => {
         </div>
 
         <div className={styles.rightDiv}>
-          <div className={styles.form}>
+          <form className={styles.form} onSubmit={onLogin}>
             <h1>Login</h1>
             <input type="email" placeholder='Enter your Email' name="email" value={userDetails.email} onChange={onChangeHandler} />
             <input type="password" placeholder='Enter Password' name="password" value={userDetails.password} onChange={onChangeHandler} />
-            <button onClick={onLogin}>Login</button>
+            <button>Login</button>
             <p>New User? <Link href="/register"><b className={styles.otherText}>Register</b></Link></p>
-          </div>
+          </form>
         </div>
         
     </div>
